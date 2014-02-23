@@ -25,12 +25,18 @@ var ApolloGenerator = yeoman.generators.Base.extend({
     // replace it with a short and sweet description of your generator
     console.log(chalk.magenta('You\'re using the fantastic Apollo generator.'));
 
-    var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+    var prompts = [
+      {
+        type: 'confirm',
+        name: 'someOption',
+        message: 'Would you like to enable this option?',
+        default: true
+      },
+      {
+        name: 'projName',
+        message: 'What is the name of the project?'
+      }
+    ];
 
     this.prompt(prompts, function (props) {
       this.someOption = props.someOption;
@@ -163,6 +169,8 @@ var ApolloGenerator = yeoman.generators.Base.extend({
     this.mkdir('test');
     this.mkdir('test/expected');
     this.mkdir('test/fixtures');
+
+    this.template('_package.json', 'package.json');
 
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
