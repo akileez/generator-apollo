@@ -147,16 +147,25 @@ var ApolloGenerator = yeoman.generators.Base.extend({
     this.mkdir('app/styles/less/utilities');
     this.mkdir('app/styles/less/vendor');
     this.mkdir('app/styles/less/');
+  },
+
+  build: function () {
     this.mkdir('build');
     this.mkdir('build/dev');
     this.mkdir('build/dist');
     this.mkdir('build/stage');
+  },
+
+  grunt: function () {
     this.mkdir('grunt');
     this.mkdir('grunt/config');
     this.mkdir('grunt/custom');
     this.mkdir('grunt/custom/lib');
     this.mkdir('grunt/environment');
     this.mkdir('grunt/tasks');
+  },
+
+  temp: function () {
     this.mkdir('temp');
     this.mkdir('temp/convert');
     this.mkdir('temp/convert/js2coffee');
@@ -166,17 +175,19 @@ var ApolloGenerator = yeoman.generators.Base.extend({
     this.mkdir('temp/readme/proj');
     this.mkdir('temp/readme/tmpl');
     this.mkdir('temp/tree');
+  },
+
+  test: function () {
     this.mkdir('test');
     this.mkdir('test/expected');
     this.mkdir('test/fixtures');
+  },
 
+  root: function () {
     this.template('_package.json', 'package.json');
 
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
-  },
-
-  projectfiles: function () {
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
   }
