@@ -40,6 +40,7 @@ var ApolloGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.someOption = props.someOption;
+      this.projName   = props.projName;
 
       done();
     }.bind(this));
@@ -61,9 +62,12 @@ var ApolloGenerator = yeoman.generators.Base.extend({
 
   root: function () {
     this.template('_package.json', 'package.json');
+    this.template('_bower.json', 'bower.json');
 
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
+    this.copy('Gruntfile.coffee', 'Gruntfile.coffee')
+    this.copy('init.coffee', 'init.coffee')
+    this.copy('bowerrc', '.bowerrc');
+    this.copy('gitignore', '.gitignore')
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
   }
