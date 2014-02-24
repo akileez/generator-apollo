@@ -35,6 +35,18 @@ var ApolloGenerator = yeoman.generators.Base.extend({
         return;
       }
     });
+
+    this.config.defaults({
+      projName: '',
+      projVers: '0.0.1',
+      projDesc: 'The best project ever.',
+      gituser:  'akileez',
+      author: {
+        name : 'Keith Williams',
+        url: 'http://kdigimedia.com/',
+        twitter: '@kdigimedia'
+      }
+    });
   },
 
   askFor: function () {
@@ -56,19 +68,45 @@ var ApolloGenerator = yeoman.generators.Base.extend({
       //   default: true
       // },
       {
+        type: 'input',
         name: 'projName',
-        message: 'What is the name of the project?'
+        message: 'What is the name of the project?',
+        default: this.appname
       },
       {
         type: 'input',
         name: 'projVers',
         message: 'What is the version of the project?',
-        default: '0.0.1'
+        default: this.config.get('projVers')
       },
       {
+        type: 'input',
         name: 'projDesc',
-        message: 'Give a description for the project:'
-      }
+        message: 'Give a description for the project:',
+        default: this.config.get('projDesc')
+      },
+      {
+        type: 'input',
+        name: 'gituser',
+        message: 'Github login:',
+        default: this.config.get('gituser')
+      },
+      {
+        type: 'input',
+        name: 'authorName',
+        message: 'Your Name:',
+        default: this.config.get('author').name
+      },{
+        type: 'input',
+        name: 'authorURL',
+        message: 'Your Homepage:',
+        default: this.config.get('author').url
+      },{
+        type: 'input',
+        name: 'authorTwit',
+        message: 'Twitter Address:',
+        default: this.config.get('author').twitter
+      },
     ];
 
     this.prompt(prompts, function (props) {
@@ -76,6 +114,12 @@ var ApolloGenerator = yeoman.generators.Base.extend({
       this.projName   = props.projName;
       this.projVers = props.projVers;
       this.projDesc = props.projDesc;
+      this.gituser = props.gituser;
+      this.authorName = props.authorName;
+      this.authorURL  = props.authorURL;
+      this.authorTwit = props.authorTwit;
+
+      this.config.set(props);
 
       done();
     }.bind(this));

@@ -23,6 +23,10 @@
     }
   ],
   "dependencies": {
+    "bower": "~1.2.8",
+    "less": "~1.6.2",
+    "coffee-script": "~1.7.1",
+    "to": "~0.2.9",
     "minimatch": "~0.2.12",
     "fs-utils": "~0.1.6",
     "globule": "~0.2.0",
