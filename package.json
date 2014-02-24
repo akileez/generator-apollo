@@ -7,8 +7,9 @@
   "repository": "akileez/generator-apollo",
   "author": {
     "name": "Keith Williams",
-    "email": "",
-    "url": "https://github.com/akileez"
+    "url": "http://kdigimedia.com/",
+    "github": "https://github.com/akileez",
+    "twitter": "@kdigimedia"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -24,7 +25,8 @@
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
-    "chalk": "~0.4.0"
+    "chalk": "~0.4.0",
+    "shelljs": "~0.2.6"
   },
   "devDependencies": {
     "mocha": "*"
