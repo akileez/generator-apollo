@@ -2,15 +2,14 @@
   "name": "<%= _.slugify(projName) %>",
   "version": "<%= projVers %>",
   "description": "<%= _.capitalize(projDesc) %>.",
-  "homepage": "http://akileez.github.io/apollo",
+  "homepage": "http://<%= projHome %>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/akileez/apollo.git"
+    "url": "https://github.com/<%= gituser %>/<%= _.slugify(projName) %>.git"
   },
-  "keywords": [
-    "assemble",
-    "grunt"
-  ],
+  "bugs": {
+    "url": "https://github.com/<%= gituser %>/<%= _.slugify(projName) %>/issues"
+  },
   "author": {
     "name": "<%= authorName %>",
     "url": "<%= authorURL %>",
@@ -21,6 +20,10 @@
     {
       "type": "MIT"
     }
+  ],
+  "keywords": [
+    "assemble",
+    "grunt"
   ],
   "dependencies": {
     "minimatch": "~0.2.12",
