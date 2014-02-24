@@ -1,0 +1,5 @@
+{{#each map}}
+  {{#is ../route slug}}
+    <li{{isActive ../../page.slug slug}}><a href="{{relPath ../../page.dest buildDest}}">{{uppercase navTitle}}</a></li>
+  {{/is}}
+{{/each}}
